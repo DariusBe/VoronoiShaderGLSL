@@ -1,2 +1,10 @@
-﻿LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  VoronoiGLSL.vcxproj -> C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiGLSL\x64\Debug\VoronoiGLSL.exe
+﻿  Main.cpp
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(27,26): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(150,16): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(150,16): message : consider using '%zi' in the format string
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(173,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(174,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(202,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(203,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  VoronoiGLSL.vcxproj -> C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\x64\Debug\VoronoiGLSL.exe

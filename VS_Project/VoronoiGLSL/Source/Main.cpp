@@ -9,7 +9,6 @@
 #include <vector>
 using namespace std;
 
-
 int screenWidth = 600; int screenHeight = 600;
 double mouseX, mouseY;
 unsigned int shader = 0;
@@ -129,14 +128,49 @@ static unsigned int CreateShader(const string& vertexShader, const string& fragm
     return program;
 }
 
-static void printShader(ShaderProgramSource source) {
+void createInitialPoints() {
+    for (int i = 0; i < 25; i++) {
+        vec2 newPoint;
+        newPoint.x = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        newPoint.y = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        inputPoints.push_back(newPoint);
+    }
+
+    // Pass the updated points array to the shader as a uniform
+    GLint pointsCountLoc = glGetUniformLocation(shader, "inputPointsCount");
+    GLint pointsLoc = glGetUniformLocation(shader, "inputPoints");
+
+    glUniform1i(pointsCountLoc, static_cast<int>(inputPoints.size()));
+    glUniform2fv(pointsLoc, static_cast<GLsizei>(inputPoints.size()), reinterpret_cast<const float*>(&inputPoints[0]));
+}
+
+static void printStringWithLineNumbers(string str, int color) {
+
+    //Tint Console Output Font via Handle
     HANDLE  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, 3);
-    cout << "\t\tVertex:" << endl;
-    cout << source.VertexSource << endl;
-    SetConsoleTextAttribute(hConsole, 4);
-    cout << "\t\tFragment:" << endl;
-    cout << source.FragmentSource << endl;
+    SetConsoleTextAttribute(hConsole, color);
+
+    size_t lineNum = 1; // Initialize line number
+    // Using iterators to split the string into lines
+    size_t pos = 0;
+    while (pos < str.length()) {
+        size_t nextPos = str.find('\n', pos); // Find the next newline character
+        if (nextPos == string::npos) {
+            nextPos = str.length(); // If no newline found, set nextPos to the end
+        }
+
+        // Extract the substring between pos and nextPos (representing a line)
+        std::string line = str.substr(pos, nextPos - pos);
+
+        // Print line number and the line itself using printf
+        printf("%i\t%s\n", lineNum++, line.c_str());
+
+        // Move to the next position after the newline character (or end of the string)
+        pos = nextPos + 1;
+    }
+    //set font color white again
+    SetConsoleTextAttribute(hConsole, 15);
+    printf("\n");
 }
 
 // GLFW mouse button callback function
@@ -276,23 +310,25 @@ int main(void)
     //shader comes from a external file
 
 
-    ShaderProgramSource source = ParseShader("../libraries/OpenGL/shader/Basic.shader");
-    printShader(source);
+    ShaderProgramSource source = ParseShader("libraries/OpenGL/shader/Basic.shader");
+    cout << "Vertex Shader:" << endl;
+    printStringWithLineNumbers(source.VertexSource, 6);     //6 = yellow
 
+    cout << "Fragment Shader:" << endl;
+    printStringWithLineNumbers(source.FragmentSource, 3);   //3 = blue
+
+    // Use Shader:
     shader = CreateShader(source.VertexSource, source.FragmentSource);
     glUseProgram(shader);
 
     //Provide Shader with Uniform variable from Screen Size (see use within shader code!):
     // Get the window width and height from GLFW
-
     glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
     // Use glGetUniformLocation to get the location of the uniform variable in the shader program
     int resolutionLocation = glGetUniformLocation(shader, "resolution");
     // Set the resolution in the shader
-    glUseProgram(shader);
     glUniform2f(resolutionLocation, (float)screenWidth, (float)screenHeight);
 
-    // Define variables to store mouse position
 
 
     // Set the mouse button callback
@@ -310,14 +346,13 @@ int main(void)
     //now OpenGL has coordinates and a vbo, but what to do with that?
     //clarify, how our data is layed out (necessary for shader to process data)
 
-
+    createInitialPoints();
 
     //draw Viewport in top left corner
     //glViewport(0, 0, screenWidth, screenHeight);
     //as long as window is not closed:
     //HERE's THE ACTION!
     while (!glfwWindowShouldClose(window)) {
-
         //render:
         //blank viewport
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);

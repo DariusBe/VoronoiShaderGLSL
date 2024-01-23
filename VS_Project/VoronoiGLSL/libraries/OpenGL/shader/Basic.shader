@@ -54,15 +54,6 @@ void main() {
         points_array[25+i] = vec2(inputPoints[i]);
     }
 
-    //fill array with points, randomly:
-    for (int i = 0; i < 25; i++) {
-        vec2 pos = vec2(
-            random(vec2(i + 1)),
-            random(vec2(i + 1) * 0.5 * cos(float(i) * .2387))
-        );
-        points_array[i] = pos;
-    }
-
     //display points:
     for (int i = 0; i < displayed_points; i++) {
         if (distance(uv, points_array[i]) <= cellcore_radius) {
@@ -76,6 +67,5 @@ void main() {
     }
     vec3 shading = mix(randColor(point), vec3(1.0), smoothEdge(dmin, edgeWidth));
 
-    out_color = vec4(shading * background, 1.0);
-
+    out_color = vec4(shading*background, 1.0);
 }

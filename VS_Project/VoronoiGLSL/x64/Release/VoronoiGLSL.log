@@ -1,0 +1,14 @@
+﻿  Main.cpp
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(27,26): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(166,16): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(166,16): message : consider using '%zi' in the format string
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(189,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(190,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(218,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\VoronoiGLSL\Source\Main.cpp(219,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating code
+  38 of 312 functions (12.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  VoronoiGLSL.vcxproj -> C:\Users\mug-r\Documents\Uni\Semester_7\Beleuchtung und Rendering - Block-Berlitz\Beleg\repo\VoronoiShaderGLSL\VS_Project\x64\Release\VoronoiGLSL.exe

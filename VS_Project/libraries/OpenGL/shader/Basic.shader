@@ -1,5 +1,5 @@
 #shader vertex
-#version 330 core
+#version 30 core
 
 layout (location = 0) in vec4 position;
 void main (void)
